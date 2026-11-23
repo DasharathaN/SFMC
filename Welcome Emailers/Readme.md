@@ -88,3 +88,6 @@ This project demonstrates:
 Dhasharatha Nakirekanti
 
 Salesforce Marketing Cloud Developer
+
+<img width="338" height="464" alt="welcome emailer" src="https://github.com/user-attachments/assets/2ddcaf70-7866-471c-b7e1-d896f0ea97b2" />
+
