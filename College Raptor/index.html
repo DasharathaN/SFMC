@@ -1,0 +1,256 @@
+%%[
+
+SET  @FirstName = AttributeValue("FirstName")
+SET @CustomerID = AttributeValue("CustomerID")
+
+SET @ProgramID = Lookup(
+    "CustomerProgram_DE",
+    "ProgramID",
+    "CustomerID",
+    @CustomerID
+)
+
+SET @ProgramName = Lookup(
+    "Programs_DE",
+    "ProgramName",
+    "ProgramID",
+    @ProgramID
+)
+
+SET @BannerURL = Lookup(
+    "Programs_DE",
+    "BannerURL",
+    "ProgramID",
+    @ProgramID
+)
+
+SET @Heading = Lookup(
+    "Programs_DE",
+    "Heading",
+    "ProgramID",
+    @ProgramID
+)
+
+SET @Description = Lookup(
+    "Programs_DE",
+    "Description",
+    "ProgramID",
+    @ProgramID
+)
+
+SET @CTA = Lookup(
+    "Programs_DE",
+    "CTA",
+    "ProgramID",
+    @ProgramID
+)
+
+SET @ScholarshipName = Lookup(
+    "Scholarships_DE",
+    " ScholarshipName",
+    "ProgramID",
+    @ProgramID
+)
+
+SET @Amount = Lookup(
+    "Scholarships_DE",
+    "Amount",
+    "ProgramID",
+    @ProgramID
+)
+
+SET @Deadline = Lookup(
+    "Scholarships_DE",
+    "Deadline",
+    "ProgramID",
+    @ProgramID
+)
+
+SET @Description = Lookup(
+    "Scholarships_DE",
+    "Description",
+    "ProgramID",
+    @ProgramID
+)
+
+SET @CTA = Lookup(
+    "Scholarships_DE",
+    "CTA",
+    "ProgramID",
+    @ProgramID
+)
+
+]%%
+
+<style>
+ .font {
+   font-family: Arial;
+font-size: 14px;
+  }
+</style>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#f5f5f5" class="font">
+    <tr>
+        <td align="center">
+
+            <table width="600" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff">
+
+                <!-- Header -->
+                <tr>
+                    <td align="center" bgcolor="#003B70" style="padding:25px;">
+                        <h1 style="color:#ffffff;font-family:Arial,Helvetica,sans-serif;margin:0;">
+                            CollegeRaptor
+                        </h1>
+                    </td>
+                </tr>
+
+                <!-- Dynamic Banner -->
+                <tr>
+                    <td>
+                      <img src="%%=v(@BannerURL)=%%"
+                             style="display:block;width:100%;max-width:600px;">
+                    </td>
+                </tr>
+
+                <!-- Body Content -->
+                <tr>
+                    <td style="padding:40px;font-family:Arial,Helvetica,sans-serif;">
+
+                        <p style="font-size:18px;color:#333333;">
+                            Hello  %%=v(@FirstName)=%%,
+                        </p>
+
+                        <h2 style="color:#003B70;">
+                            %%=v(@Heading)=%%
+                        </h2>
+
+                        <p style="font-size:16px;line-height:24px;color:#666666;">
+                            %%=v(@Description)=%%
+                        </p>
+
+                    </td>
+                </tr>
+
+                <!-- CTA Button -->
+                <tr>
+                    <td align="center" style="padding-bottom:40px;">
+
+                        <table cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                                <td bgcolor="#003B70" style="padding:15px 30px; color:#FFF;">
+                                      <a href="#" target="_blank" style="color:#FFF; text-decoration:none;">  %%=v(@CTA)=%%
+                                    </a>
+
+                                </td>
+                            </tr>
+                        </table>
+
+                    </td>
+                </tr>
+
+                <!-- Dynamic Program Information -->
+                <tr>
+                    <td style="padding:0 40px 30px;">
+
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+
+                            <tr>
+                                <td style="padding:15px;border:1px solid #dddddd;">
+
+                                    <h3 style="margin-top:0;">
+                                        Program Details
+                                    </h3>
+
+                                    <p>
+                                        <strong>Program:</strong>
+                                        %%=v(@ProgramName)=%%
+                                    </p>
+
+                                    <p>
+                                        Learn how this program can help you achieve your academic and career goals.
+                                    </p>
+
+                                </td>
+                            </tr>
+
+                        </table>
+
+                    </td>
+                </tr>
+  
+  <tr>
+    <td style="padding:40px;">
+
+        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+
+            <tr>
+                <td bgcolor="#F5F7FA" style="padding:25px;border:1px solid #DDE3EA;">
+
+                    <h2 style="margin-top:0;color:#003B70;">
+                        Scholarship Recommendation
+                    </h2>
+
+                    <h3 style="color:#333333;">
+                        %%=v(@ScholarshipName)=%%
+                    </h3>
+
+                    <p>
+                        <strong>Award Amount:</strong>
+                        %%=v(@Amount)=%%
+                    </p>
+
+                    <p>
+                        <strong>Application Deadline:</strong>
+                        %%=v(@Deadline)=%%
+                    </p>
+
+                    <p style="line-height:24px;color:#555555;">
+                        %%=v(@ScholarshipDescription)=%%
+                    </p>
+
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                            <td bgcolor="#003B70" style="padding:12px 25px; color: #FFF;">
+                              <a href="#" target="_blank" style="color:#FFF; text-decoration:none;">
+                                    %%=v(@CTA)=%%
+                                </a>
+
+                            </td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+
+        </table>
+
+    </td>
+</tr>
+
+                <!-- Footer -->
+                <tr>
+                    <td bgcolor="#eeeeee"
+                        style="padding:20px;
+                               font-family:Arial,Helvetica,sans-serif;
+                               font-size:12px;
+                               color:#666666;
+                               text-align:center;">
+
+                        <p>
+                          <a href="%%profile_center_url%%" alias="Update Profile">Update Profile</a> &nbsp;&nbsp;<a href="%%unsub_center_url%%" alias="Unsubscribe">Unsubscribe</a>
+                        </p>
+
+                        
+
+                        <p>
+                            %%Member_Busname%%, %%Member_Addr%%, %%Member_City%%,<br>  %%Member_State%%,%%Member_PostalCode%%, %%Member_Country%%
+                        </p>
+
+                    </td>
+                </tr>
+
+            </table>
+
+        </td>
+    </tr>
+</table>
